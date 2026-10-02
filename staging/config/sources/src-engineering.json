@@ -1,0 +1,12 @@
+{
+  "sourceId": "conn-engineering",
+  "sourceName": "Engineering Department (Authoritative Source)",
+  "sourceType": "engineering",
+  "port": 5190,
+  "authToken": "gcuid_source_engineering_token_12345",
+  "database": {
+    "path": "./data/sources/conn-engineering.db",
+    "tableName": "employees",
+    "primaryKey": "dept_id"
+  }
+}

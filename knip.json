@@ -1,0 +1,27 @@
+{
+  "workspaces": {
+    ".": {
+      "entry": [
+        "staging/scripts/*.ts",
+        "staging/cli/**/*.ts",
+        "scripts/*.ts",
+        "scripts/*.js"
+      ],
+      "project": [
+        "staging/**/*.ts",
+        "staging/**/*.tsx",
+        "scripts/*.ts",
+        "scripts/*.js"
+      ]
+    },
+    "staging/web-ui": {
+      "entry": [
+        "src/main.tsx",
+        "src/vite-env.d.ts"
+      ],
+      "project": [
+        "src/**/*.{ts,tsx}"
+      ]
+    }
+  }
+}

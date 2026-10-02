@@ -1,0 +1,71 @@
+{
+  "logging": {
+    "level": "info",
+    "file": {
+      "enabled": false,
+      "path": "./logs/gcuid.log",
+      "maxSize": 5242880,
+      "maxFiles": 5
+    },
+    "console": {
+      "enabled": true,
+      "colorize": true
+    },
+    "format": "simple"
+  },
+  "database": {
+    "path": "./data/registry.db",
+    "verbose": false
+  },
+  "gcuid": {
+    "defaultNamespace": "gc",
+    "defaultFormat": "v2",
+    "defaultVersion": 1,
+    "defaultCoreType": "ulid",
+    "alias": {
+      "enabled": true,
+      "defaultContext": "A",
+      "hashAlgorithm": "sha256"
+    },
+    "v2": {
+      "enabled": true,
+      "aliasOnCreation": false
+    },
+    "v1": {
+      "enabled": true,
+      "deprecated": false
+    }
+  },
+  "cli": {
+    "styles": {
+      "headColor": "cyan",
+      "boxWidth": 59,
+      "listLimit": 20
+    },
+    "messages": {
+      "mintSuccess": "GCUID minted successfully!",
+      "registrationSuccess": "✓ Registered in database with state: {state}",
+      "notFound": "✗ GCUID not found in registry",
+      "alreadyExists": "✗ GCUID already exists in registry",
+      "invalidGcuid": "✗ GCUID is invalid",
+      "validGcuid": "✓ GCUID is valid"
+    },
+    "tableHeaders": {
+      "keyValue": ["Key", "Value"],
+      "component": ["Component", "Value"],
+      "property": ["Property", "Value"],
+      "attribute": ["Attribute", "Value"],
+      "entityTypes": ["Entity Type"],
+      "registryList": ["GCUID", "Type", "State"],
+      "stats": ["Category", "Count"],
+      "history": ["#", "From", "To", "Changed At", "Reason"]
+    },
+    "columnWidths": {
+      "registryList": [50, 12, 12],
+      "history": [5, 12, 12, 28, 30]
+    }
+  },
+  "entities": {
+    "defaultTypes": ["person", "org", "asset", "app", "agent"]
+  }
+}

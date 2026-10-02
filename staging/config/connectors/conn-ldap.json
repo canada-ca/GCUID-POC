@@ -1,0 +1,37 @@
+{
+  "systemId": "conn-ldap",
+  "displayName": "LDAP / Active Directory",
+  "systemType": "authoritative_source",
+  "accessMode": "dynamic-pull",
+  "enabled": true,
+  "description": "Enterprise directory service providing authentication accounts, group memberships, and organisational hierarchy. Authoritative source for digital identity and access attributes.",
+  "gcuidIntegration": {
+    "registryUrl": "http://localhost:5182",
+    "registryAuthToken": "staging_ldap_token_12345",
+    "attributeMappings": {
+      "person.name.given": "first_name",
+      "person.name.family": "last_name",
+      "person.email": "email",
+      "person.directory.username": "username",
+      "person.directory.dn": "distinguished_name",
+      "person.employment.department": "department",
+      "person.employment.title": "title",
+      "person.directory.account_enabled": "account_enabled",
+      "person.directory.last_logon": "last_logon"
+    }
+  },
+  "sourceConnection": {
+    "type": "sqlite",
+    "dbPath": "./data/sources/conn-ldap.db",
+    "primaryTable": "users",
+    "primaryKeyField": "username",
+    "upstreamSource": {
+      "baseUrl": "http://127.0.0.1:5189",
+      "authToken": "gcuid_source_ldap_token_12345"
+    }
+  },
+  "connectorServer": {
+    "port": 5184,
+    "authToken": "staging_ldap_token_12345"
+  }
+}

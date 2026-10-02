@@ -1,0 +1,15 @@
+{
+  "name": "@gcuid/federation",
+  "version": "0.1.0",
+  "description": "Federation protocols and adapters for identity providers",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf dist *.tsbuildinfo"
+  },
+  "keywords": ["identity", "gcuid", "federation"],
+  "author": "",
+  "license": "LicenseRef-NOETRONIQ-Proprietary"
+}

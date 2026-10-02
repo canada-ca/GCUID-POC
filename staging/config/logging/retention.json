@@ -1,0 +1,174 @@
+{
+  "_comment": "GCUID Logging — Retention and Rotation Configuration. All durations in days unless stated. SQLite-backed; rotation is implemented by DELETE + VACUUM on a schedule, with optional JSONL archive export before deletion.",
+
+  "global": {
+    "rotationSchedule": "0 2 * * *",
+    "_commentSchedule": "Cron expression: run retention cleanup at 02:00 every night.",
+    "archiveBeforeDelete": true,
+    "archiveFormat": "jsonl",
+    "archiveDirectory": "./logs/archive",
+    "vacuumAfterRotation": true,
+    "vacuumThresholdDeletedRows": 1000,
+    "_commentVacuum": "Run VACUUM only if more than this many rows were deleted (avoids expensive VACUUM on small cleanups)."
+  },
+
+  "levels": {
+    "_comment": "Default per-level retention across ALL tables. A table-level override (below) takes precedence.",
+    "debug":     { "retainDays": 3  },
+    "info":      { "retainDays": 14 },
+    "notice":    { "retainDays": 60 },
+    "warning":   { "retainDays": 90 },
+    "error":     { "retainDays": 365 },
+    "critical":  { "retainDays": 730 },
+    "alarm":     { "retainDays": 730 },
+    "emergency": { "retainDays": 730 }
+  },
+
+  "tables": {
+
+    "log_gcuid_registry": {
+      "_comment": "Identity lifecycle events — extended retention for audit and compliance.",
+      "levels": {
+        "debug":     { "retainDays": 3   },
+        "info":      { "retainDays": 30  },
+        "notice":    { "retainDays": 180 },
+        "warning":   { "retainDays": 365 },
+        "error":     { "retainDays": 730 },
+        "critical":  { "retainDays": 2555 },
+        "alarm":     { "retainDays": 2555 },
+        "emergency": { "retainDays": 2555 }
+      },
+      "archiveEvents": [
+        "identity.approved", "identity.rejected", "identity.suspended",
+        "identity.deleted", "identity.archived", "identity.state_invalid",
+        "alias.created", "alias.deleted", "auth.denied"
+      ],
+      "_commentArchive": "These event_type slugs are always archived before deletion, regardless of level."
+    },
+
+    "log_caes": {
+      "_comment": "Attribute federation — shorter debug/info window; errors retained for a year.",
+      "levels": {
+        "debug":     { "retainDays": 2   },
+        "info":      { "retainDays": 14  },
+        "notice":    { "retainDays": 60  },
+        "warning":   { "retainDays": 90  },
+        "error":     { "retainDays": 365 },
+        "critical":  { "retainDays": 730 },
+        "alarm":     { "retainDays": 730 },
+        "emergency": { "retainDays": 730 }
+      },
+      "archiveEvents": [
+        "federation.failed", "cache.stale_served", "source.query_error"
+      ]
+    },
+
+    "log_hr_system": {
+      "_comment": "HR data — employee mutation events retained for full 7-year employment law period.",
+      "levels": {
+        "debug":     { "retainDays": 3   },
+        "info":      { "retainDays": 30  },
+        "notice":    { "retainDays": 365 },
+        "warning":   { "retainDays": 730 },
+        "error":     { "retainDays": 730 },
+        "critical":  { "retainDays": 2555 },
+        "alarm":     { "retainDays": 2555 },
+        "emergency": { "retainDays": 2555 }
+      },
+      "archiveEvents": [
+        "employee.created", "employee.updated", "employee.deactivated",
+        "gcuid.linked", "gcuid.unlinked",
+        "connector.offline", "sync.failed"
+      ]
+    },
+
+    "log_ldap": {
+      "_comment": "LDAP/AD — bind failures and self-service changes retained for security audit.",
+      "levels": {
+        "debug":     { "retainDays": 2   },
+        "info":      { "retainDays": 30  },
+        "notice":    { "retainDays": 180 },
+        "warning":   { "retainDays": 365 },
+        "error":     { "retainDays": 730 },
+        "critical":  { "retainDays": 2555 },
+        "alarm":     { "retainDays": 2555 },
+        "emergency": { "retainDays": 2555 }
+      },
+      "archiveEvents": [
+        "bind.failure", "self_service.success", "self_service.rejected",
+        "self_service.unauthorised", "user.updated",
+        "connector.offline", "sync.failed"
+      ]
+    },
+
+    "log_engineering": {
+      "_comment": "Engineering department — standard operational retention.",
+      "levels": {
+        "debug":     { "retainDays": 3   },
+        "info":      { "retainDays": 14  },
+        "notice":    { "retainDays": 60  },
+        "warning":   { "retainDays": 90  },
+        "error":     { "retainDays": 365 },
+        "critical":  { "retainDays": 730 },
+        "alarm":     { "retainDays": 730 },
+        "emergency": { "retainDays": 730 }
+      },
+      "archiveEvents": [
+        "cache.policy_violated", "coverage.below_threshold", "sync.failed"
+      ]
+    },
+
+    "log_finance": {
+      "_comment": "Finance department — financial records and employee mutations retained for 7 years.",
+      "levels": {
+        "debug":     { "retainDays": 3   },
+        "info":      { "retainDays": 30  },
+        "notice":    { "retainDays": 730 },
+        "warning":   { "retainDays": 730 },
+        "error":     { "retainDays": 730 },
+        "critical":  { "retainDays": 2555 },
+        "alarm":     { "retainDays": 2555 },
+        "emergency": { "retainDays": 2555 }
+      },
+      "archiveEvents": [
+        "employee.created", "employee.updated", "employee.deleted",
+        "financial_record.created", "financial_record.updated",
+        "cache.policy_violated", "sync.failed"
+      ]
+    },
+
+    "log_system": {
+      "_comment": "Infrastructure logs — HTTP traffic kept briefly; server crashes and config events kept long.",
+      "levels": {
+        "debug":     { "retainDays": 1   },
+        "info":      { "retainDays": 7   },
+        "notice":    { "retainDays": 30  },
+        "warning":   { "retainDays": 60  },
+        "error":     { "retainDays": 365 },
+        "critical":  { "retainDays": 730 },
+        "alarm":     { "retainDays": 730 },
+        "emergency": { "retainDays": 730 }
+      },
+      "archiveEvents": [
+        "server.crash", "config.invalid", "flag.changed",
+        "session.revoked", "error.unhandled",
+        "metrics.threshold_exceeded", "dept_cache.corrupt",
+        "connector.disabled"
+      ]
+    }
+
+  },
+
+  "archiveRetention": {
+    "_comment": "How long archived JSONL files are kept on disk before deletion.",
+    "retainDays": 3650,
+    "_commentValue": "10 years — matches maximum regulatory retention period used above."
+  },
+
+  "sizeLimits": {
+    "_comment": "Safety net: if any table exceeds the row or MB limit, a forced rotation is triggered outside the normal schedule regardless of age. Prevents unbounded growth from a log storm.",
+    "maxRowsPerTable":    5000000,
+    "maxTableSizeMb":     500,
+    "forceRotationAction": "archive_and_delete_oldest_10pct"
+  }
+}

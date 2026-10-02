@@ -1,0 +1,12 @@
+{
+  "sourceId": "conn-hr",
+  "sourceName": "HR System (Authoritative Source)",
+  "sourceType": "hr",
+  "port": 5188,
+  "authToken": "gcuid_source_hr_token_12345",
+  "database": {
+    "path": "./data/sources/conn-hr.db",
+    "tableName": "employees",
+    "primaryKey": "employee_id"
+  }
+}

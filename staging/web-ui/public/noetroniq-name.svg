@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="165.27016mm"
+   height="31.259325mm"
+   viewBox="0 0 165.27016 31.259325"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="name.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.71268238"
+     inkscape:cx="392.18031"
+     inkscape:cy="109.44567"
+     inkscape:window-width="2048"
+     inkscape:window-height="1002"
+     inkscape:window-x="5113"
+     inkscape:window-y="49"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient158"
+       id="linearGradient160"
+       x1="373.47003"
+       y1="512.62598"
+       x2="401.86533"
+       y2="538.6535"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="linearGradient158"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#721817;stop-opacity:1;"
+         offset="0"
+         id="stop159" />
+      <stop
+         style="stop-color:#5c1312;stop-opacity:1;"
+         offset="1"
+         id="stop160" />
+    </linearGradient>
+    <rect
+       x="371.30841"
+       y="526.7251"
+       width="312.29205"
+       height="61.339516"
+       id="rect3823" />
+    <rect
+       x="371.30841"
+       y="526.7251"
+       width="639.58466"
+       height="37.780582"
+       id="rect3825" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient154"
+       id="linearGradient155"
+       x1="419.11243"
+       y1="462.87164"
+       x2="536.55933"
+       y2="568.49042"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="linearGradient154"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#001730;stop-opacity:1;"
+         offset="0"
+         id="stop154" />
+      <stop
+         style="stop-color:#001f3f;stop-opacity:1;"
+         offset="0.2930434"
+         id="stop156" />
+      <stop
+         style="stop-color:#00558c;stop-opacity:1;"
+         offset="0.60892653"
+         id="stop155" />
+      <stop
+         style="stop-color:#003d70;stop-opacity:1;"
+         offset="0.79438996"
+         id="stop158" />
+      <stop
+         style="stop-color:#001f3f;stop-opacity:1;"
+         offset="1"
+         id="stop157" />
+    </linearGradient>
+    <rect
+       x="371.30841"
+       y="526.7251"
+       width="312.29205"
+       height="61.339516"
+       id="rect153" />
+  </defs>
+   <style type="text/css"><![CDATA[
+   @font-face {
+      font-family: 'Raleway';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Raleway Regular'),
+           url('../../fonts/Raleway/Raleway-Regular.woff2') format('woff2'),
+           url('/assets/fonts/Raleway/Raleway-Regular.woff2') format('woff2'),
+           url('https://noetroniq.com/assets/fonts/Raleway/Raleway-Regular.woff2') format('woff2');
+      font-display: swap;
+   }
+   @font-face {
+      font-family: 'Raleway';
+      font-style: normal;
+      font-weight: 800;
+      src: local('Raleway ExtraBold'),
+           url('../../fonts/Raleway/Raleway-ExtraBold.woff2') format('woff2'),
+           url('/assets/fonts/Raleway/Raleway-ExtraBold.woff2') format('woff2'),
+           url('https://noetroniq.com/assets/fonts/Raleway/Raleway-ExtraBold.woff2') format('woff2');
+      font-display: swap;
+   }
+   @font-face {
+      font-family: 'Raleway Variable';
+      font-style: normal;
+      font-weight: 100 900;
+      src: local('Raleway Variable'),
+           url('../../fonts/Raleway/Raleway-VariableFont_wght.woff2') format('woff2-variations'),
+           url('/assets/fonts/Raleway/Raleway-VariableFont_wght.woff2') format('woff2-variations'),
+           url('https://noetroniq.com/assets/fonts/Raleway/Raleway-VariableFont_wght.woff2') format('woff2-variations');
+      font-display: swap;
+   }
+text { font-family: 'Raleway','Raleway Variable', sans-serif; font-weight:800; }
+]]></style>
+   <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-1.0056635,-0.79042587)">
+    <g
+       id="g1">
+     <text
+         xml:space="preserve"
+         id="text3805"
+       style="font-size:37.3333px;letter-spacing:2.18px;word-spacing:0.18px;white-space:pre;shape-inside:url(#rect3823);display:inline;fill:url(#linearGradient160);stroke:none;stroke-width:0"
+         transform="matrix(0.6967628,0,0,0.6967628,-121.465,-355.43429)"><tspan
+           x="371.30859"
+           y="537.95004"
+           id="tspan2"><tspan
+          style="font-weight:800;"
+             id="tspan1">IQ</tspan></tspan></text>
+      <text
+         xml:space="preserve"
+         id="text3819"
+       style="font-size:16px;letter-spacing:2.70017px;word-spacing:1.2802px;white-space:pre;shape-inside:url(#rect3825);display:inline;fill:#001f3f;fill-opacity:1;stroke:#bfc9ca;stroke-width:0"
+         transform="matrix(0.6967628,0,0,0.6967628,-257.33382,-338.3936)"><tspan
+           x="371.30859"
+           y="531.53551"
+           id="tspan4"><tspan
+             dx="0 0 0 0 0 0 0 0 0 -1.2802052 1.2801995"
+          style="font-weight:800;fill:#020202;stroke:#fdfdfd"
+             id="tspan3">STRATEGIC INITIATIVES</tspan></tspan></text>
+      <text
+         xml:space="preserve"
+         id="text153"
+       style="font-size:37.3333px;letter-spacing:2.18px;word-spacing:0.18px;white-space:pre;shape-inside:url(#rect153);display:inline;fill:url(#linearGradient155);stroke:none;stroke-width:0"
+         transform="matrix(0.6967628,0,0,0.6967628,-259.47717,-355.43429)"><tspan
+           x="371.30859"
+           y="537.95004"
+           id="tspan6"><tspan
+          style="font-weight:800;"
+             id="tspan5">NOETRON</tspan></tspan></text>
+    </g>
+  </g>
+</svg>

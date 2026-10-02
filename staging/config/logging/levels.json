@@ -1,0 +1,100 @@
+{
+  "_comment": "GCUID Logging — Log Level Configuration. Per-environment minimum levels, with per-component overrides. Component keys support exact match or 'prefix:*' glob. Resolution order: exact component > prefix glob > default.",
+
+  "environments": {
+
+    "development": {
+      "_comment": "Emit everything in development so developers see the full picture.",
+      "default": "debug",
+      "slowRequestThresholdMs": 500,
+      "components": {}
+    },
+
+    "staging": {
+      "_comment": "Staging mirrors production defaults but enables debug on matching and federation for demonstration and diagnostics.",
+      "default": "info",
+      "slowRequestThresholdMs": 2000,
+      "components": {
+        "module:matcher":           "debug",
+        "module:resolver":          "debug",
+        "module:cache":             "debug",
+        "scheduler:hr-sync":        "debug",
+        "scheduler:ldap-sync":      "debug",
+        "scheduler:eng-sync":       "debug",
+        "scheduler:fin-sync":       "debug",
+        "connector:hr-server":      "debug",
+        "connector:hr-client":      "debug",
+        "connector:ldap-server":    "debug",
+        "connector:ldap-client":    "debug",
+        "middleware:logger":        "info"
+      }
+    },
+
+    "production": {
+      "_comment": "Production: notice-level by default. API access at info; heavy-traffic middleware at warning; debug suppressed everywhere. Alarm and above always emit regardless of configuration.",
+      "default": "notice",
+      "slowRequestThresholdMs": 3000,
+      "components": {
+        "api:admin":                "info",
+        "api:user":                 "info",
+        "api:caes":                 "info",
+        "api:hr":                   "info",
+        "api:ldap":                 "info",
+        "api:engineering":          "info",
+        "api:finance":              "info",
+        "api:connectors":           "info",
+        "api:flags":                "info",
+        "api:dept":                 "info",
+        "middleware:logger":        "warning",
+        "middleware:cors":          "warning",
+        "module:matcher":           "info",
+        "module:resolver":          "info",
+        "module:cache":             "info",
+        "module:dept-cache":        "info",
+        "scheduler:sync":           "info",
+        "scheduler:hr-sync":        "info",
+        "scheduler:ldap-sync":      "info",
+        "scheduler:eng-sync":       "info",
+        "scheduler:fin-sync":       "info",
+        "scheduler:prefetch":       "info",
+        "scheduler:global":         "info",
+        "connector:hr-server":      "notice",
+        "connector:hr-client":      "notice",
+        "connector:ldap-server":    "notice",
+        "connector:ldap-client":    "notice",
+        "ui:GCUIDPortal":           "notice",
+        "ui:CAESPortal":            "notice",
+        "ui:HRPortal":              "notice",
+        "ui:LDAPPortal":            "notice",
+        "ui:EngineeringPortal":     "notice",
+        "ui:FinancePortal":         "notice",
+        "ui:DepartmentPortal":      "notice",
+        "ui:SourceSystemsPortal":   "notice",
+        "ui:SourceConnectorPortal": "notice",
+        "ui:OptionsPortal":         "notice",
+        "ui:UserPortal":            "info",
+        "ui:Layout":                "warning",
+        "auth:session":             "info",
+        "middleware:auth":          "info",
+        "server:api":               "notice",
+        "server:web-ui":            "notice"
+      }
+    }
+
+  },
+
+  "alwaysEmit": {
+    "_comment": "These level codes are NEVER suppressed regardless of component configuration. Level code 0=emergency, 1=alarm, 2=critical.",
+    "maxLevelCode": 2
+  },
+
+  "sensitiveComponents": {
+    "_comment": "For these components, context and error_detail fields are redacted in production log output (replaced with '[REDACTED]'). PII fields (ip_address last octet, user_agent) are always masked.",
+    "production": [
+      "auth:session",
+      "middleware:auth",
+      "bind.attempted",
+      "bind.failure"
+    ]
+  }
+}

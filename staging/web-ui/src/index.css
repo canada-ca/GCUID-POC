@@ -1,0 +1,251 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, 'IBM Plex Sans', system-ui, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── UX token fallback defaults (light) ──────────────────────────────────────
+ * These mirror DEFAULT_LIGHT_TOKENS in api/routes/ux-config.ts.
+ * UXThemeContext overrides them at runtime once the API responds.
+ * Without these, any bg-ux-* / text-ux-* class is transparent until load.
+ * ─────────────────────────────────────────────────────────────────────────── */
+:root {
+  --ux-bg-page:           #f2f5f9;
+  --ux-bg-surface:        #ffffff;
+  --ux-bg-surface-alt:    #f9fafb;
+  --ux-bg-hover:          #f3f4f6;
+  --ux-bg-highlight:      #eff6ff;
+  --ux-border-default:    #e5e7eb;
+  --ux-border-strong:     #d1d5db;
+  --ux-text-primary:      #111827;
+  --ux-text-secondary:    #4b5563;
+  --ux-text-muted:        #9ca3af;
+  --ux-text-link:         #6d28d9;
+  --ux-accent-primary:    #d4af37;
+  --ux-accent-on-primary: #001f3f;
+  --ux-accent-secondary:  #7c3aed;
+  --ux-btn-primary-bg:    #d4af37;
+  --ux-btn-primary-text:  #001f3f;
+  --ux-btn-secondary-bg:  #f3f4f6;
+  --ux-btn-secondary-text:#374151;
+  --ux-status-success:    #16a34a;
+  --ux-status-warning:    #d97706;
+  --ux-status-error:      #dc2626;
+  --ux-status-info:       #2563eb;
+  --ux-nav-dot:           #8b5cf6;
+  --ux-nav-dot-color:     #8b5cf6;
+  --ux-nav-label:         #6d28d9;
+  --ux-nav-label-color:   #6d28d9;
+  --ux-table-header-bg:   #eef1f6;
+  --ux-input-bg:          #ffffff;
+  --ux-code-bg:           #f1f5f9;
+  --ux-badge-neutral-bg:  #e2e8f0;
+  --ux-badge-neutral-text:#475569;
+  --ux-toggle-thumb:      #ffffff;
+  /* Accent tints */
+  --ux-accent-subtle-bg:      #f4f7fa;
+  --ux-accent-subtle-border:  #d0dde9;
+  --ux-accent-muted-bg:       #e7eef4;
+  /* Status panel backgrounds / borders */
+  --ux-status-success-bg:     #f5f7f4;
+  --ux-status-success-border: #d1dccf;
+  --ux-status-warning-bg:     #faf8f2;
+  --ux-status-warning-border: #e9e1c9;
+  --ux-status-error-bg:       #fdf4f4;
+  --ux-status-error-border:   #f1cccc;
+  --ux-status-info-bg:        #f4f7fa;
+  --ux-status-info-border:    #d0dde9;
+  /* Elevation overlays */
+  --ux-elevation1:            #ffffff;
+  --ux-elevation2:            #f8fafc;
+}
+
+/* Dark-mode overrides — mirrors DEFAULT_DARK_TOKENS */
+.dark {
+  --ux-bg-page:           #001f3f;
+  --ux-bg-surface:        #1f2937;
+  --ux-bg-surface-alt:    #374151;
+  --ux-bg-hover:          #374151;
+  --ux-bg-highlight:      #1e3a5f;
+  --ux-border-default:    #374151;
+  --ux-border-strong:     #4b5563;
+  --ux-text-primary:      #f9fafb;
+  --ux-text-secondary:    #d1d5db;
+  --ux-text-muted:        #6b7280;
+  --ux-text-link:         #a78bfa;
+  --ux-accent-primary:    #d4af37;
+  --ux-accent-on-primary: #001f3f;
+  --ux-accent-secondary:  #7c3aed;
+  --ux-btn-primary-bg:    #d4af37;
+  --ux-btn-primary-text:  #001f3f;
+  --ux-btn-secondary-bg:  #374151;
+  --ux-btn-secondary-text:#e5e7eb;
+  --ux-status-success:    #4ade80;
+  --ux-status-warning:    #fbbf24;
+  --ux-status-error:      #f87171;
+  --ux-status-info:       #60a5fa;
+  --ux-nav-dot:           #a78bfa;
+  --ux-nav-dot-color:     #a78bfa;
+  --ux-nav-label:         #c4b5fd;
+  --ux-nav-label-color:   #c4b5fd;
+  --ux-table-header-bg:   #0d2347;
+  --ux-input-bg:          #001f3f;
+  --ux-code-bg:           #0f172a;
+  --ux-badge-neutral-bg:  #1e3a5f;
+  --ux-badge-neutral-text:#94a3b8;
+  --ux-toggle-thumb:      #ffffff;
+  /* Accent tints */
+  --ux-accent-subtle-bg:      #192231;
+  --ux-accent-subtle-border:  #334f6c;
+  --ux-accent-muted-bg:       #1e3a5f;
+  /* Status panel backgrounds / borders */
+  --ux-status-success-bg:     #0d1e0c;
+  --ux-status-success-border: #3d5636;
+  --ux-status-warning-bg:     #1c1600;
+  --ux-status-warning-border: #a67f3d;
+  --ux-status-error-bg:       #1f0808;
+  --ux-status-error-border:   #721817;
+  --ux-status-info-bg:        #0e1d2e;
+  --ux-status-info-border:    #334f6c;
+  /* Elevation overlays */
+  --ux-elevation1:            #ffffff0d;
+  --ux-elevation2:            #ffffff1f;
+}
+
+@layer base {
+  body {
+    background-color: var(--ux-bg-page, #f2f5f9);
+    color: var(--ux-text-primary, #1a1a1a);
+  }
+
+  .dark body {
+    /* dark values are injected directly into --ux-* by UXThemeContext on mode change */
+    background-color: var(--ux-bg-page, #0a1d3a);
+    color: var(--ux-text-primary, #fdfdf0);
+  }
+
+  h1, h2, h3 {
+    font-family: Montserrat, system-ui, sans-serif;
+    font-weight: 700;
+  }
+
+  /* Identifiers, code, and technical values use brand mono font */
+  code, kbd, pre, .font-mono {
+    font-family: 'Fira Code', 'IBM Plex Mono', ui-monospace, monospace;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-400;
+  }
+  
+  .btn-primary {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    background-color: var(--ux-btn-primary-bg, #d4af37);
+    color: var(--ux-btn-primary-text, #001f3f);
+    --tw-ring-color: var(--ux-btn-primary-bg, #d4af37);
+  }
+
+  .btn-primary:hover {
+    filter: brightness(0.9);
+  }
+
+  .btn-secondary {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    background-color: var(--ux-btn-secondary-bg, #f3f4f6);
+    color: var(--ux-btn-secondary-text, #374151);
+    --tw-ring-color: var(--ux-btn-secondary-bg, #001f3f);
+  }
+
+  .btn-secondary:hover {
+    filter: brightness(0.92);
+  }
+
+  .dark .btn-secondary {
+    background-color: var(--ux-btn-secondary-bg, #173d75);
+    color: var(--ux-btn-secondary-text, #fdfdf0);
+  }
+
+  .dark .btn-secondary:hover {
+    filter: brightness(0.9);
+  }
+  
+  .card {
+    @apply rounded-lg shadow-md p-6;
+    background-color: var(--ux-bg-surface, #f2f5f9);
+  }
+
+  .dark .card {
+    background-color: var(--ux-bg-surface, #0d2347);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+  }
+  
+  .input {
+    @apply w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:border-transparent;
+    background-color: var(--ux-bg-surface, #f2f5f9);
+    color: var(--ux-text-primary, #1a1a1a);
+    border-color: var(--ux-border-default, #d1d5db);
+    --tw-ring-color: var(--ux-accent-primary, #001f3f);
+  }
+
+  .dark .input {
+    background-color: var(--ux-bg-surface, #001f3f);
+    color: var(--ux-text-primary, #fdfdf0);
+    border-color: var(--ux-border-default, #173d75);
+    --tw-ring-color: var(--ux-accent-primary, #d4af37);
+  }
+
+  /* GCUID identifier string — always monospace, always distinct */
+  .gcuid-id {
+    font-family: 'Fira Code', 'IBM Plex Mono', ui-monospace, monospace;
+    @apply text-sm tracking-tight;
+  }
+
+  /* ── New element-class utilities (Phase 8) ─────────────────────────────── */
+
+  /* Table <thead> row — use on the <thead> element or a wrapping <tr> */
+  .table-header-ux {
+    background-color: var(--ux-table-header-bg, #eef1f6);
+  }
+
+  /* Input / select / textarea override — when the bg must differ from bgSurface */
+  .input-ux {
+    background-color: var(--ux-input-bg, #ffffff);
+    color: var(--ux-text-primary, #111827);
+    border-color: var(--ux-border-default, #e5e7eb);
+  }
+
+  .dark .input-ux {
+    background-color: var(--ux-input-bg, #001f3f);
+  }
+
+  /* Code / pre blocks */
+  .code-ux {
+    background-color: var(--ux-code-bg, #f1f5f9);
+  }
+
+  .dark .code-ux {
+    background-color: var(--ux-code-bg, #0f172a);
+  }
+
+  /* Neutral (non-status) badge or chip */
+  .badge-neutral-ux {
+    background-color: var(--ux-badge-neutral-bg, #e2e8f0);
+    color: var(--ux-badge-neutral-text, #475569);
+  }
+
+  .dark .badge-neutral-ux {
+    background-color: var(--ux-badge-neutral-bg, #1e3a5f);
+    color: var(--ux-badge-neutral-text, #94a3b8);
+  }
+}

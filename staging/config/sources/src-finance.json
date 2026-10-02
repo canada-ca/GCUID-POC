@@ -1,0 +1,12 @@
+{
+  "sourceId": "conn-finance",
+  "sourceName": "Finance Department (Authoritative Source)",
+  "sourceType": "finance",
+  "port": 5191,
+  "authToken": "gcuid_source_finance_token_12345",
+  "database": {
+    "path": "./data/sources/conn-finance.db",
+    "tableName": "employees",
+    "primaryKey": "dept_id"
+  }
+}

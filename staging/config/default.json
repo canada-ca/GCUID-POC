@@ -1,0 +1,76 @@
+{
+  "environment": "staging",
+  "database": {
+    "central": "./staging/data/registry.db",
+    "sources": {
+      "hr": "./staging/data/sources/conn-hr.db",
+      "ldap": "./staging/data/sources/conn-ldap.db",
+      "engineering": "./staging/data/sources/conn-engineering.db",
+      "finance": "./staging/data/sources/conn-finance.db"
+    }
+  },
+  "api": {
+    "port": 5182,
+    "host": "localhost",
+    "cors": {
+      "enabled": true,
+      "origins": [
+        "http://localhost:5181",
+        "http://localhost:5182",
+        "http://localhost:5183"
+      ]
+    }
+  },
+  "connectors": {
+    "hr": {
+      "port": 5183,
+      "sourceId": "conn-hr",
+      "sourceName": "HR Management System (Authoritative)",
+      "sourceType": "hr",
+      "authToken": "staging_hr_token_12345",
+      "cacheTTL": 300
+    },
+    "ldap": {
+      "port": 5184,
+      "sourceId": "conn-ldap",
+      "sourceName": "LDAP/Active Directory (Authoritative)",
+      "sourceType": "ldap",
+      "authToken": "staging_ldap_token_12345",
+      "cacheTTL": 300
+    },
+    "engineering": {
+      "port": 5185,
+      "sourceId": "conn-engineering",
+      "sourceName": "Engineering Department System",
+      "sourceType": "department",
+      "authToken": "staging_eng_token_12345",
+      "cacheTTL": 300
+    },
+    "finance": {
+      "port": 5186,
+      "sourceId": "conn-finance",
+      "sourceName": "Finance Department System",
+      "sourceType": "department",
+      "authToken": "staging_fin_token_12345",
+      "cacheTTL": 300
+    }
+  },
+  "auth": {
+    "tokens": {
+      "user": "staging_user_token_abc123",
+      "dept_operator": "staging_dept_token_def456",
+      "admin": "staging_admin_token_ghi789"
+    }
+  },
+  "logging": {
+    "level": "debug",
+    "console": {
+      "enabled": true,
+      "colorize": true
+    },
+    "file": {
+      "enabled": true,
+      "path": "./staging/logs"
+    }
+  }
+}

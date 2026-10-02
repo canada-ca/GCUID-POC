@@ -1,0 +1,18 @@
+{
+  "name": "@gcuid/attributes",
+  "version": "0.1.0",
+  "description": "Attribute management and retrieval system",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf dist *.tsbuildinfo"
+  },
+  "keywords": ["identity", "gcuid", "attributes"],
+  "author": "",
+  "license": "LicenseRef-NOETRONIQ-Proprietary",
+  "dependencies": {
+    "@gcuid/federation": "^0.1.0"
+  }
+}

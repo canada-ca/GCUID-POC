@@ -1,0 +1,35 @@
+{
+  "systemId": "conn-engineering",
+  "displayName": "Engineering Department System",
+  "systemType": "department",
+  "accessMode": "scheduled-pull",
+  "enabled": true,
+  "description": "Engineering department HR system managing staff including full-time, part-time, and contractors. Requests GCUIDs for employees and links to authoritative HR/LDAP records.",
+  "gcuidIntegration": {
+    "registryUrl": "http://localhost:5182",
+    "registryAuthToken": "staging_eng_token_12345",
+    "attributeMappings": {
+      "person.name.given": "first_name",
+      "person.name.family": "last_name",
+      "person.email": "email",
+      "person.employment.role": "role",
+      "person.employment.type": "employment_type",
+      "person.employment.status": "status",
+      "person.employment.start_date": "start_date"
+    }
+  },
+  "sourceConnection": {
+    "type": "sqlite",
+    "dbPath": "./data/sources/conn-engineering.db",
+    "primaryTable": "employees",
+    "primaryKeyField": "dept_id",
+    "upstreamSource": {
+      "baseUrl": "http://127.0.0.1:5190",
+      "authToken": "gcuid_source_engineering_token_12345"
+    }
+  },
+  "connectorServer": {
+    "port": 5185,
+    "authToken": "staging_eng_token_12345"
+  }
+}

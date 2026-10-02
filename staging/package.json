@@ -1,0 +1,49 @@
+{
+  "name": "@gcuid/staging",
+  "version": "1.0.0",
+  "description": "GCUID Staging Demonstration Environment",
+  "type": "module",
+  "bin": {
+    "gcuid-staging": "./dist/cli/index.js"
+  },
+  "scripts": {
+    "test": "jest --config jest.config.cjs",
+    "test:api": "jest --config jest.config.cjs api/__tests__/routes",
+    "test:e2e": "jest --config jest.config.cjs api/__tests__/e2e",
+    "test:watch": "jest --config jest.config.cjs --watch",
+    "test:coverage": "jest --config jest.config.cjs --coverage",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "cli": "tsx cli/index.ts",
+    "seed-data": "tsx scripts/seed-data.ts",
+    "start-connectors": "tsx scripts/start-connectors.ts",
+    "start-api": "tsx api/server.ts",
+    "start-web": "cd web-ui && npm run dev",
+    "start-all": "node ../scripts/run-dev.js start",
+    "stop-all": "node ../scripts/run-dev.js stop",
+    "build-web": "cd web-ui && npm run build"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.10.0",
+    "chalk": "^5.3.0",
+    "cli-table3": "^0.6.3",
+    "commander": "^14.0.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jexl": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.14",
+    "@types/jexl": "^2.3.4",
+    "@types/node": "^20.11.0",
+    "@types/supertest": "^6.0.3",
+    "jest": "^29.7.0",
+    "supertest": "^7.2.2",
+    "ts-jest": "^29.4.11",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}

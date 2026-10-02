@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+dist/
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+.nyc_output/
+
+# SQLite runtime artefacts
+# WAL/SHM sidecars are always generated at runtime — never commit them
+*.db-wal
+*.db-shm
+# logs.db is generated from data/schema/logging-schema.sql at runtime
+staging/data/logs.db
+# examples-orchestration.db is created by orchestration-examples.ts at runtime
+packages/core/data/examples-orchestration.db
+# test-identity.db is a leftover test artefact with no source references
+packages/core/data/test-identity.db
+
+# Runtime PID files written by start-dev scripts (per-service liveness)
+staging/data/.api.pid
+staging/data/.connectors.pid
+staging/data/.web.pid
+staging/data/.sources.pid
+staging/data/.source-*.pid
+staging/data/sources/*.pid
+
+# Vite build output for the staging Web UI (rebuild with `cd staging/web-ui && npm run build`)
+staging/web-ui-dist/
+
+# Hermes desktop state (local-only)
+.hermes/
+backups/

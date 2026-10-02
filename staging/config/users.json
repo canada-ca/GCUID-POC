@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": "user_001",
+      "username": "jane.smith",
+      "email": "jane.smith@example.com",
+      "role": "end_user",
+      "token": "staging_user_token_abc123",
+      "displayName": "Jane Smith",
+      "department": null,
+      "createdAt": "2026-04-01T00:00:00Z"
+    },
+    {
+      "id": "user_002",
+      "username": "john.doe",
+      "email": "john.doe@example.com",
+      "role": "end_user",
+      "token": "staging_user2_token_xyz789",
+      "displayName": "John Doe",
+      "department": null,
+      "createdAt": "2026-04-01T00:00:00Z"
+    },
+    {
+      "id": "dept_001",
+      "username": "hr.admin",
+      "email": "hr.admin@example.com",
+      "role": "dept_operator",
+      "department": "conn-hr",
+      "token": "staging_dept_token_def456",
+      "displayName": "HR Administrator",
+      "createdAt": "2026-04-01T00:00:00Z"
+    },
+    {
+      "id": "dept_002",
+      "username": "ldap.admin",
+      "email": "ldap.admin@example.com",
+      "role": "dept_operator",
+      "department": "conn-ldap",
+      "token": "staging_dept2_token_mno123",
+      "displayName": "LDAP Administrator",
+      "createdAt": "2026-04-01T00:00:00Z"
+    },
+    {
+      "id": "admin_001",
+      "username": "system.admin",
+      "email": "admin@example.com",
+      "role": "admin",
+      "token": "staging_admin_token_ghi789",
+      "displayName": "System Administrator",
+      "department": null,
+      "createdAt": "2026-04-01T00:00:00Z"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "systemId": "conn-finance",
+  "displayName": "Finance Department System",
+  "systemType": "department",
+  "accessMode": "push-cache",
+  "enabled": true,
+  "description": "Finance department workforce system covering employees with varying security clearance levels. Requests GCUIDs for staff and links to authoritative HR/LDAP sources.",
+  "gcuidIntegration": {
+    "registryUrl": "http://localhost:5182",
+    "registryAuthToken": "staging_fin_token_12345",
+    "attributeMappings": {
+      "person.name.given": "first_name",
+      "person.name.family": "last_name",
+      "person.email": "email",
+      "person.employment.role": "role",
+      "person.employment.type": "employment_type",
+      "person.employment.status": "status",
+      "person.employment.start_date": "start_date",
+      "person.security.clearance_level": "clearance_level"
+    }
+  },
+  "sourceConnection": {
+    "type": "sqlite",
+    "dbPath": "./data/sources/conn-finance.db",
+    "primaryTable": "employees",
+    "primaryKeyField": "dept_id",
+    "upstreamSource": {
+      "baseUrl": "http://127.0.0.1:5191",
+      "authToken": "gcuid_source_finance_token_12345"
+    }
+  },
+  "connectorServer": {
+    "port": 5186,
+    "authToken": "staging_fin_token_12345"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "systemId": "conn-hr",
+  "displayName": "HR Management System",
+  "systemType": "authoritative_source",
+  "accessMode": "dynamic-pull",
+  "enabled": true,
+  "description": "Central HR system holding all federal employee records. Primary authoritative source for person identities including employment status, department, and personal attributes.",
+  "gcuidIntegration": {
+    "registryUrl": "http://localhost:5182",
+    "registryAuthToken": "staging_hr_token_12345",
+    "attributeMappings": {
+      "person.name.given": "first_name",
+      "person.name.family": "last_name",
+      "person.email": "email",
+      "person.employment.department": "department",
+      "person.employment.title": "job_title",
+      "person.employment.type": "employment_type",
+      "person.employment.status": "status",
+      "person.employment.hire_date": "hire_date"
+    }
+  },
+  "sourceConnection": {
+    "type": "sqlite",
+    "dbPath": "./data/sources/conn-hr.db",
+    "primaryTable": "employees",
+    "primaryKeyField": "employee_id",
+    "upstreamSource": {
+      "baseUrl": "http://127.0.0.1:5188",
+      "authToken": "gcuid_source_hr_token_12345"
+    }
+  },
+  "connectorServer": {
+    "port": 5183,
+    "authToken": "staging_hr_token_12345"
+  }
+}

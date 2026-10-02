@@ -1,0 +1,20 @@
+{
+  "name": "@gcuid/api",
+  "version": "0.1.0",
+  "description": "REST API layer for GCUID identity operations",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf dist *.tsbuildinfo"
+  },
+  "keywords": ["identity", "gcuid", "api"],
+  "author": "",
+  "license": "LicenseRef-NOETRONIQ-Proprietary",
+  "dependencies": {
+    "@gcuid/core": "^0.1.0",
+    "@gcuid/federation": "^0.1.0",
+    "@gcuid/attributes": "^0.1.0"
+  }
+}
